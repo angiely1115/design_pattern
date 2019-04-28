@@ -1,25 +1,27 @@
 package com.lv_base.designpatterns.创建型模式.单例模式;
 
+/**
+ * 通过静态内部类来实现单例模式，利用JVM类加载机制保证只加载一次
+ */
 public class Singleton4 {
-    /* 私有构造方法，防止被实例化 */
+    /**
+     *  私有构造方法，防止被实例化 */
     private Singleton4() {
     }
 
-    /* 此处使用一个内部类来维护单例 */
+    /**
+     *  此处使用一个内部类来维护单例 */
     private static class SingletonFactory {
         private static Singleton4 instance = new Singleton4();
     }
 
-    /* 获取实例 */
+    /**
+     *  获取实例 */
     public static Singleton4 getInstance() {
         return SingletonFactory.instance;
     }
 
-    /* 如果该对象被用于序列化，可以保证对象在序列化前后保持一致 */
-    public Object readResolve() {
-        return getInstance();
-    }
-    
+
     
     /**
      * 实际情况是，单例模式使用内部类来维护单例的实现，JVM内部的机制能够保证当一个类被加载的时候，这个类的加载过程是线程互斥的。

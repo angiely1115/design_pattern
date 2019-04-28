@@ -2,7 +2,7 @@ package com.lv_base.designpatterns.创建型模式.单例模式;
 
 public class Singleton3 {
     /* 持有私有静态实例，防止被引用，此处赋值为null，目的是实现延迟加载 */
-    private static Singleton3 instance = null;
+    private static volatile Singleton3 instance = null;
 
     /* 私有构造方法，防止被实例化 */
     private Singleton3() {
@@ -11,7 +11,7 @@ public class Singleton3 {
     /* 静态工程方法，创建实例 */
     public static Singleton3 getInstance() {
         if (instance == null) {
-            synchronized (instance) {
+            synchronized (Singleton3.class) {
                 if (instance == null) {
                     instance = new Singleton3();
                 }
