@@ -14,5 +14,13 @@ public abstract class AbstractFactoryComputer {
 
    protected abstract CPU getCPU();
 
-    protected abstract Mainboard getMainboard();
+   protected abstract Mainboard getMainboard();
+
+    /**
+     * 组装电脑
+     */
+   public final void  buildComputer() {
+       this.getCPU().yunsuan();
+       this.getMainboard().installCpu();
+    }
 }

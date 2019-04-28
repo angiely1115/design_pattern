@@ -22,12 +22,12 @@ public class ComputerFactoryA extends AbstractFactoryComputer {
     @Autowired
     private GAMainboard gaMainboard;
     @Override
-    public CPU getCPU() {
+    protected CPU getCPU() {
         return intelCpu;
     }
 
     @Override
-    public Mainboard getMainboard() {
+    protected Mainboard getMainboard() {
         return gaMainboard;
     }
 }

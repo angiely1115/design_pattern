@@ -22,12 +22,12 @@ public class ComputerFactoryB extends AbstractFactoryComputer {
     @Autowired
     private MSIMainboard msiMainboard;
     @Override
-    public CPU getCPU() {
+    protected CPU getCPU() {
         return amdCpu;
     }
 
     @Override
-    public Mainboard getMainboard() {
+    protected Mainboard getMainboard() {
         return msiMainboard;
     }
 }

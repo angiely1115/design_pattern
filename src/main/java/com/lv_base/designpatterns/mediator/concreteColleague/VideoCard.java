@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class VideoCard extends Colleague {
     //显卡用来显示数据
-    public void showData(String data){
+    public void   showData(String data){
         System.out.println("您正在观看："+data);
     }
 

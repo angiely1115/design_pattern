@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * modified by:
  */
 public abstract class Colleague {
+    //拥有一个中介者
     @Autowired
-    protected Mediator mediator;//拥有一个中介者
+    protected Mediator mediator;
 }

@@ -107,10 +107,8 @@ public class DesignPatternApplicationTests {
      */
     @Test
     public void testAbstractFactory() {
-        computerFactoryA.getCPU().yunsuan();
-        computerFactoryA.getMainboard().installCpu();
-        computerFactoryB.getCPU().yunsuan();
-        computerFactoryB.getMainboard().installCpu();
+        computerFactoryA.buildComputer();
+        computerFactoryB.buildComputer();
     }
 
     @Test

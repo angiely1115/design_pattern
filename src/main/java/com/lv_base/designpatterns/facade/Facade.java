@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * @Author: lvrongzhuan
- * @Description:一个门面 门面模式的本质：封装交互，简化调用
+ * @Description:一个门面 门面模式的本质：封装交互，简化调用 降低跟客户端的耦合
  * @Date: 2018/8/15 10:11
  * @Version: 1.0
  * modified by:
