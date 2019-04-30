@@ -34,8 +34,15 @@ public class SimpleTest {
         System.out.println(house);
         House house1  = house.clone();
         house1.setSize(9999);
-        System.out.println("clone:"+house1);
-        System.out.println(house);
+        house1.setAddress("峨眉金顶");
+        System.out.println("clone huose1:"+house1);
+        System.out.println("原装："+house);
+        House  house2 = house1.clone();
+        System.out.println("house2:"+house2);
+        System.out.println("house1==house2:"+(house1==house2));
+        house2.setAddress("青城山下");
+        System.out.println(house2);
+        System.out.println("house1:"+house1);
     }
 
     @Test
