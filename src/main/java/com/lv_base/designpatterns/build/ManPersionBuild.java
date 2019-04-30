@@ -1,6 +1,7 @@
 package com.lv_base.designpatterns.build;
 
 import com.lv_base.designpatterns.build.product.Person;
+import lombok.Data;
 
 /**
  * @Author: lvrongzhuan
@@ -9,7 +10,8 @@ import com.lv_base.designpatterns.build.product.Person;
  * @Version: 1.0
  * modified by:
  */
-public class ManPersionBuild extends PersonBuilder{
+@Data
+public class ManPersionBuild extends AbstractPersonBuilder {
     Person person;
     private String head;
     private String body;
@@ -23,28 +25,28 @@ public class ManPersionBuild extends PersonBuilder{
     }
 
     @Override
-    public PersonBuilder buildHead(String head) {
+    public AbstractPersonBuilder buildHead(String head) {
         return this;
     }
 
     @Override
-    public PersonBuilder buildBody(String body) {
+    public AbstractPersonBuilder buildBody(String body) {
         return this;
     }
 
     @Override
-    public PersonBuilder buildFoot(String foot) {
+    public AbstractPersonBuilder buildFoot(String foot) {
         return this;
     }
 
     @Override
-    public PersonBuilder buildSkin(String skin) {
+    public AbstractPersonBuilder buildSkin(String skin) {
         person.setSkin(skin);
         return this;
     }
 
     @Override
-    public PersonBuilder buildArms(String arms) {
+    public AbstractPersonBuilder buildArms(String arms) {
         person.setArms(arms);
         return this;
     }
