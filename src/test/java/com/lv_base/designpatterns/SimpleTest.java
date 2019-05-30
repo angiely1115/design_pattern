@@ -22,31 +22,48 @@ import java.io.*;
  */
 public class SimpleTest {
     @Test
-    public void testBulid(){
-        ManPersionBuild manPersionBuild = new ManPersionBuild("大大的头","强健的身躯","千禧的脚");
+    public void testBulid() {
+        ManPersionBuild manPersionBuild = new ManPersionBuild("大大的头", "强健的身躯", "千禧的脚");
         Person person = manPersionBuild.buildSkin("洁白的肌肤").build();
         System.out.println(person);
     }
 
     @Test
     public void testProtoType() throws CloneNotSupportedException {
-        House house = new House("茅草房",1000,888.88);
+        House house = new House("茅草房", 1000, 888.88);
         System.out.println(house);
-        House house1  = house.clone();
+        House house1 = house.clone();
         house1.setSize(9999);
         house1.setAddress("峨眉金顶");
-        System.out.println("clone huose1:"+house1);
-        System.out.println("原装："+house);
-        House  house2 = house1.clone();
-        System.out.println("house2:"+house2);
-        System.out.println("house1==house2:"+(house1==house2));
+        System.out.println("clone huose1:" + house1);
+        System.out.println("原装：" + house);
+        House house2 = house1.clone();
+        System.out.println("house2:" + house2);
+        System.out.println("house1==house2:" + (house1 == house2));
         house2.setAddress("青城山下");
         System.out.println(house2);
-        System.out.println("house1:"+house1);
+        System.out.println("house1:" + house1);
     }
 
     @Test
-    public void testCommandCallBack(){
+    public void testProtoType2() throws CloneNotSupportedException {
+        House house = new House("茅草房", 1000, 888.88);
+        System.out.println(house);
+        house = house.clone();
+        house.setSize(9999);
+        house.setAddress("峨眉金顶");
+        System.out.println("clone huose1:" + house);
+        System.out.println("原装：" + house);
+        House house2 = house.clone();
+        System.out.println("house2:" + house2);
+        System.out.println("house1==house2:" + (house == house2));
+        house2.setAddress("青城山下");
+        System.out.println(house2);
+        System.out.println("house1:" + house);
+    }
+
+    @Test
+    public void testCommandCallBack() {
         //命令模式实现回调
         CommandInvoke commandInvoke = new CommandInvoke();
         commandInvoke.executePrint(new Command() {
@@ -58,10 +75,9 @@ public class SimpleTest {
     }
 
     @Test
-    public void testMemento(){
-        Chessman chessman = new Chessman("炮",1,4);
+    public void testMemento() {
+        Chessman chessman = new Chessman("炮", 1, 4);
         display(chessman);
-//        Memento memento = chessman.save();
         MementoCaretaker mementoCaretaker = new MementoCaretaker();
 //        mementoCaretaker.saveMemento(memento);
         chessman.setY(7);
@@ -74,6 +90,7 @@ public class SimpleTest {
         display(chessman);
 
     }
+
     public static void display(Chessman chess) {
         System.out.println("棋子" + chess.getLabel() + "当前位置为：" + "第" + chess.getX() + "行" + "第" + chess.getY() + "列。");
     }

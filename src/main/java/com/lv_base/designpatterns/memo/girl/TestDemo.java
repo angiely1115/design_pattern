@@ -23,7 +23,7 @@ public class TestDemo {
         // 后管记录下皇帝选的妃子
         girls.saveGirl(beautifulGirl);
         beautifulGirl = new BeautifulGirl("彭小小",18,"云南昆明");
-        beautifulGirl = emperor.election(beautifulGirl);
+        emperor.election(beautifulGirl);
         //皇帝还是想要第一个妃子
         emperor.beforeGirl(girls.getGirl());
     }

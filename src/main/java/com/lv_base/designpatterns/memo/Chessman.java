@@ -23,7 +23,7 @@ public class Chessman {
         this.y = y;
     }
 
-    public ChessmanMementoLink save(){
+    public ChessmanMementoLink  save(){
         ChessmanMemento chessmanMemento =  new ChessmanMemento(label,x,y);
         ChessmanMementoLink chessmanMementoLink = new ChessmanMementoLink();
         chessmanMementoLink.addNode(chessmanMemento);

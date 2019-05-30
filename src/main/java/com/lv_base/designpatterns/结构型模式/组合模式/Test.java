@@ -18,6 +18,7 @@ public class Test {
         
         //节点C 作为 节点B 的子节点
         nodeB.add(nodeC);
+        nodeC.add(nodeB);
         
         //将节点B 加入到树中，作为 树A的子节点
         tree.root.add(nodeB);

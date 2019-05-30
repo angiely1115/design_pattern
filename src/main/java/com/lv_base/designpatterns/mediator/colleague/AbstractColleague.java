@@ -12,5 +12,5 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public abstract class AbstractColleague {
     @Autowired
-   protected   AbstractMediator abstractMediator;
+   protected AbstractMediator abstractMediator;
 }

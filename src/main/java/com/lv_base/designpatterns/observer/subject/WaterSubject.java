@@ -21,7 +21,9 @@ public class WaterSubject {
 
     //通知观察者
     public void notifyObservers(int level){
-        if(ListUtil.isEmpty(watcherObservers))return;
+        if (ListUtil.isEmpty(watcherObservers)) {
+            return;
+        }
         int size = watcherObservers.size();
         WatcherObserver watcherObserver;
         for(int i=0;i<size;i++){

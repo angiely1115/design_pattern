@@ -19,4 +19,10 @@ public class MementoCaretaker {
         Memento memento = this.menoto.getHead();
         return memento;
     }
+
+    public Chessman.ChessmanMementoLink getChessmanMementoLink(){
+        return this.menoto;
+    }
+
+
 }
