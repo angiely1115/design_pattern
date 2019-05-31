@@ -9,7 +9,8 @@ import java.util.Map;
 
 /**
  * @Author: lvrongzhuan
- * @Description:享元工厂类 暂时还没有想到实际应用场景
+ * @Description:享元工厂类 暂时还没有想到实际应用场景 分离出内部状态和外部状态 内部状态是不变的可以共享的
+ * 减少系统的对象，降低系统内存的消耗 享元模式主要针对那些使用比较频繁，而种类又不是很多的业务
  * @Date: 2018/8/27 11:11
  * @Version: 1.0
  * modified by:
