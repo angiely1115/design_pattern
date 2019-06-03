@@ -1,4 +1,7 @@
 package com.lv_base.designpatterns;
+import com.lv_base.designpatterns.strategy.BankPaymentRequestDto;
+import com.lv_base.designpatterns.strategy.PaymentEnum;
+import com.lv_base.designpatterns.strategy.PaymentEnum.PaymentTypeEnum;
 
 import com.lv_base.designpatterns.AbstractFactory.concreteFactory.ComputerFactoryA;
 import com.lv_base.designpatterns.AbstractFactory.concreteFactory.ComputerFactoryB;
@@ -29,6 +32,8 @@ import com.lv_base.designpatterns.observer.subject.NewsPaper;
 import com.lv_base.designpatterns.observer.subject.WaterSubject;
 import com.lv_base.designpatterns.simpleFactory.SimpleFactory;
 import com.lv_base.designpatterns.status.AccountContext;
+import com.lv_base.designpatterns.strategy.PaymentContext;
+import com.lv_base.designpatterns.strategy.PaymentRequestDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,6 +96,8 @@ public class DesignPatternApplicationTests {
     private SmsNoticeHandle smsNoticeHandle;
     @Autowired
     private PushNoticeHandle pushNoticeHandle;
+    @Autowired
+    private PaymentContext paymentContext;
     @Test
     public void testSimpleFactory() {
         simpleFactory.getApiProduct("B").hello();
@@ -197,5 +204,26 @@ public class DesignPatternApplicationTests {
         smsNoticeHandle.setNoticeHandler(pushNoticeHandle);
 //        pushNoticeHandle.setNoticeHandler(wechatNoticeHandle);出现了死循环 调用
         System.out.println(wechatNoticeHandle.noticeHandler(noticeDomain));
+    }
+
+    /**
+     * 策略模式
+     */
+    @Test
+    public void testStrategy() {
+        PaymentRequestDto paymentRequestDto = new PaymentRequestDto();
+        paymentRequestDto.setAmount(1000L);
+        paymentRequestDto.setAccount("522516230@qq.com");
+        paymentRequestDto.setPaymentTypeEnum(PaymentTypeEnum.PAYMENT_TYPE_ALI_ENUM);
+        paymentContext.invokePayment(paymentRequestDto);
+        paymentRequestDto.setAccount("18811879608@qq.com");
+        paymentRequestDto.setPaymentTypeEnum(PaymentTypeEnum.PAYMENT_TYPE_WEIXIN_ENUM);
+        paymentContext.invokePayment(paymentRequestDto);
+        paymentRequestDto = new BankPaymentRequestDto();
+        paymentRequestDto.setAmount(1000L);
+        paymentRequestDto.setAccount("522516230@qq.com");
+        paymentRequestDto.setPaymentTypeEnum(PaymentTypeEnum.PAYMENT_TYPE_BANK_ENUM);
+        ((BankPaymentRequestDto) paymentRequestDto).setBankName("中国银行");
+        paymentContext.invokePayment(paymentRequestDto);
     }
 }
