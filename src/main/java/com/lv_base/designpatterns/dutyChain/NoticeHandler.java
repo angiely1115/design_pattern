@@ -8,8 +8,8 @@ package com.lv_base.designpatterns.dutyChain;
  * modified by:
  */
 public abstract class NoticeHandler {
-
-    protected NoticeHandler noticeHandler;//持有自己的对象
+    //持有自己的对象
+    protected NoticeHandler noticeHandler;
 
     public void setNoticeHandler(NoticeHandler noticeHandler) {
         this.noticeHandler = noticeHandler;
